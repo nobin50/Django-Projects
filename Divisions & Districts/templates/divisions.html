@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+<h2>বাংলাদেশের বিভাগসমূহ </h2>
+<table class="table table-striped">
+    <tr>
+        <th>নাম</th>
+        <th>জনসংখ্যা </th>
+        <th>আয়তন </th>
+    </tr>
+    {% for div in divisions %}
+        <tr>
+            <td><a href="{% url 'dists_of_division' div.pk %}">{{ div.name }}</td>
+            <td>{{ div.population }}</td>
+            <td>{{ div.area }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
